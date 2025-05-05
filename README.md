@@ -3,17 +3,17 @@
 
 ## 🧱 Project Structure
 
-├── app/
-│ ├── main.py # FastAPI entrypoint
-│ ├── database.py # DuckDB connection logic
-│ ├── utils.py # Redis and utility functions
-│ ├── index_builder.py # Business logic for index building
-│ ├── models.py # (Optional) Data models
-│ └── data/
-│ └── index_data.duckdb # DuckDB file
-├── Dockerfile
-├── docker-compose.yml
-└── requirements.txt
+#####├── app/
+#####│ ├── main.py # FastAPI entrypoint
+#####│ ├── database.py # DuckDB connection logic
+#####│ ├── utils.py # Redis and utility functions
+#####│ ├── index_builder.py # Business logic for index building
+#####│ ├── models.py # (Optional) Data models
+#####│ └── data/
+#####│ └── index_data.duckdb # DuckDB file
+#####├── Dockerfile
+#####├── docker-compose.yml
+#####└── requirements.txt
 
 
 
@@ -72,11 +72,11 @@ python app/data_ingest.py
 
 § API usage (sample curl/Postman):
 API End points :
-1. POST - /build-index
-2. GET - /indexperformance
-3. GET -/index-composition
-4. GET -/composition-changes
-5. POST -/export-data
+1. POST - /build-index : 
+2. GET - /indexperformance :
+3. GET -/index-composition :
+4. GET -/composition-changes :
+5. POST -/export-data :
 
 § Database schema overview:
 DB - index_data.duckdb
