@@ -50,7 +50,7 @@
 ---
 
 
-§ Running data acquisition job:
+# Running data acquisition job:
 
 python app/data_ingest.py
 
@@ -62,16 +62,17 @@ API End points :
 4. GET -/composition-changes :
 5. POST -/export-data :
 
-§ Database schema overview:
+# Database schema overview:
 DB - index_data.duckdb
-Tables :
 
-stock_metadata
+## Tables :
+
+### stock_metadata
 ---------------
 symbol (VARCHAR, PRIMARY KEY)
 name (VARCHAR, NOT NULL)
 
-daily_data
+### daily_data
 ----------
 symbol (VARCHAR, NOT NULL, FOREIGN KEY referencing stock_metadata.symbol)
 date (DATE, NOT NULL)
@@ -79,14 +80,14 @@ market_cap (DOUBLE, NOT NULL)
 price (DOUBLE, NOT NULL)
 UNIQUE (symbol, date)
 
-index_composition
+### index_composition
 -----------------
 date (DATE, NOT NULL)
 symbol (VARCHAR, NOT NULL, FOREIGN KEY referencing stock_metadata.symbol)
 weight (DOUBLE, NOT NULL)
 UNIQUE (date, symbol)
 
-index_performance
+### index_performance
 -----------------
 date (DATE, PRIMARY KEY)
 index_value (DOUBLE, NOT NULL)
