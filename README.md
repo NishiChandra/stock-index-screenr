@@ -3,17 +3,17 @@
 
 ## 🧱 Project Structure
 
-#####├── app/
-#####│ ├── main.py # FastAPI entrypoint
-#####│ ├── database.py # DuckDB connection logic
-#####│ ├── utils.py # Redis and utility functions
-#####│ ├── index_builder.py # Business logic for index building
-#####│ ├── models.py # (Optional) Data models
-#####│ └── data/
-#####│ └── index_data.duckdb # DuckDB file
-#####├── Dockerfile
-#####├── docker-compose.yml
-#####└── requirements.txt
+── app/
+    ├── main.py # FastAPI entrypoint
+    ├── database.py # DuckDB connection logic
+    ├── utils.py # Redis and utility functions
+    ├── index_builder.py # Business logic for index building
+    ├── models.py # (Optional) Data models
+    └── data/
+            └── index_data.duckdb # DuckDB file
+├── Dockerfile
+├── docker-compose.yml
+└── requirements.txt
 
 
 
