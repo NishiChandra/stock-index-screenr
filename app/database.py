@@ -1,5 +1,5 @@
 import duckdb
-from utils import DB_PATH, logger
+from app.utils import DB_PATH, logger
 import pandas as pd
 def get_db_connection():
     """Returns a connection to the DuckDB database."""
@@ -8,31 +8,6 @@ def get_db_connection():
     except Exception as e:
         logger.error(f"Error connecting to DuckDB: {e}")
         raise
-def reset_database():
-    """Drops existing tables in proper order to handle dependencies"""
-    conn = None
-    cursor = None
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        logger.info("Dropping existing tables...")
-
-        # Drop tables in reverse dependency order
-        cursor.execute("DROP TABLE IF EXISTS index_performance")
-        cursor.execute("DROP TABLE IF EXISTS index_composition")
-        cursor.execute("DROP TABLE IF EXISTS daily_data")
-        cursor.execute("DROP TABLE IF EXISTS stock_metadata")
-        
-        conn.commit()
-        logger.info("Database reset complete.")
-    except Exception as e:
-        logger.error(f"Error resetting database: {e}")
-        raise
-    finally:
-        if cursor:
-            cursor.close()
-        if conn:
-            conn.close()
 
 def setup_database():
     """Sets up the database schema without auto-incrementing IDs"""
@@ -86,25 +61,6 @@ def setup_database():
     finally:
         cursor.close()
         conn.close()
-def fetch_stock_data():
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-
-        # Create tables with DuckDB-compatible syntax
-        cursor.execute("""SELECT * from index_performance""")
-        metadata = cursor.fetchall()
-        # metadata_df = pd.DataFrame(metadata, columns=['symbol', 'name'])
-        print(metadata)
-        cursor.execute("""SELECT * from index_composition""")
-        daily_data = cursor.fetchall()
-        # daily_df = pd.DataFrame(daily_data, columns=['symbol', 'date', 'market_cap', 'price'])
-        # print(daily_df)
-        conn.commit()
-    except Exception as e:
-        print(e)
 
 if __name__ == "__main__":
-    # reset_database()
-    # setup_database()
-    fetch_stock_data()
+    setup_database()
