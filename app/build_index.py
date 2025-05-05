@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 import json
-from utils import get_redis_client
-from database import get_db_connection
+from app.utils import get_redis_client
+from app.database import get_db_connection
 from datetime import date, timedelta, datetime
 
 r = get_redis_client()
