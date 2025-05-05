@@ -3,7 +3,7 @@ from requests.exceptions import RequestException
 import yfinance as yf
 from utils import logger
 import datetime
-from database import duckdb,get_db_connection
+from app.database import duckdb,get_db_connection
 import pandas as pd
 import lxml
 
