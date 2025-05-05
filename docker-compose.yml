@@ -1,0 +1,26 @@
+
+services:
+  fastapi:
+    build: .
+    container_name: fastapi_app
+    volumes:
+      - ./app:/app/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - DB_PATH=/app/app/data/index_data.duckdb
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+volumes:
+  redisdata:
