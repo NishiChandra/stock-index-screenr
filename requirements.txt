@@ -1,0 +1,9 @@
+duckdb
+fastapi
+requests
+redis
+pydantic
+yfinance
+lxml
+uvicorn
+xlsxwriter
