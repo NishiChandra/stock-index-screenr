@@ -94,3 +94,5 @@ index_value (DOUBLE, NOT NULL)
 daily_return (DOUBLE)
 cumulative_return (DOUBLE)
 
+## System Architecture
+![diagram](https://github.com/user-attachments/assets/8256ae0a-0b37-4cdf-9466-98c7020213cd)
